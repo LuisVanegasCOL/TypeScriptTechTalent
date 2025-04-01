@@ -120,3 +120,4 @@ document.querySelectorAll(".filters button").forEach(button => {
 document.addEventListener("DOMContentLoaded", () => {
     taskManager.renderTasks();
 });
+//# sourceMappingURL=main.js.map

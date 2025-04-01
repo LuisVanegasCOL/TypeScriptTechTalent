@@ -1,0 +1,145 @@
+/* Reset de estilo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Configuración de la fuente */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #FF9A8B, #FF6A88);
+    color: #fff;
+    text-align: center;
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+/* Contenedor principal */
+.container {
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: scale(1.05);
+}
+
+/* Títulos */
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+/* Mensajes y textos */
+p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: #fff;
+}
+
+#message {
+    margin: 15px 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Input y botón */
+input[type="number"] {
+    padding: 10px;
+    width: 80%;
+    margin: 10px 0;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 1em;
+    transition: background-color 0.3s ease-in-out;
+}
+
+input[type="number"]:focus {
+    background-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    border-color: #FF9A8B;
+}
+
+button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #FF6A88;
+    color: #fff;
+    font-size: 1.1em;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+button:hover {
+    background-color: #FF9A8B;
+    transform: scale(1.1);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Contador de intentos */
+#attempts {
+    font-weight: bold;
+    color: #FF9A8B;
+}
+
+/* Estilo para el botón de reiniciar */
+#resetGame {
+    background-color: #FF6A88;
+    margin-top: 15px;
+    border-radius: 20px;
+}
+
+#resetGame:hover {
+    background-color: #FF9A8B;
+}
+
+/* Iconos y emojis */
+button:before {
+    content: '🎯';
+    margin-right: 10px;
+}
+
+/* Animación para el mensaje */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#message {
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input[type="number"], button {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+}
