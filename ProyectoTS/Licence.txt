@@ -1,0 +1,141 @@
+Documentación del código:
+1. Estructura de la clase Task
+La clase Task define la estructura de una tarea. Cada tarea tiene tres propiedades:
+
+id: Un identificador único para cada tarea. Esto ayuda a evitar que haya tareas duplicadas.
+
+title: El título o nombre de la tarea, que es una cadena de texto.
+
+completed: Un valor booleano (true o false) que indica si la tarea ha sido completada o no.
+
+Constructor
+El constructor de la clase Task toma tres parámetros: id, title y completed. Estos parámetros inicializan las propiedades de la clase para crear una nueva tarea.
+
+2. Clase TaskManager
+La clase TaskManager gestiona todas las tareas. En ella se implementan varias funciones para agregar, eliminar y cambiar el estado de las tareas. Además, permite almacenar las tareas en el localStorage del navegador para que persistan entre sesiones.
+
+Propiedades:
+tasks: Un array que almacena todas las tareas.
+
+taskListElement: Hace referencia al contenedor HTML donde se mostrarán las tareas en la interfaz de usuario.
+
+Constructor
+El constructor inicializa las propiedades de la clase, busca el contenedor HTML para las tareas, y llama a las funciones para cargar las tareas desde el localStorage y renderizarlas.
+
+Funciones de la clase TaskManager
+addTask(title: string): void
+
+Esta función se utiliza para agregar una nueva tarea.
+
+Parámetro: title (string) - El título de la nueva tarea.
+
+Funcionamiento:
+
+Se genera un id único usando Date.now() (la hora actual en milisegundos).
+
+Se crea una nueva tarea con el título pasado, y se marca como no completada (false).
+
+La nueva tarea se agrega al array tasks.
+
+Luego, se guarda la lista de tareas en el localStorage y se renderizan las tareas en la pantalla.
+
+toggleTaskCompletion(id: number): void
+
+Esta función cambia el estado de una tarea entre completada y no completada.
+
+Parámetro: id (number) - El id de la tarea que se quiere modificar.
+
+Funcionamiento:
+
+Se busca la tarea en el array tasks usando su id.
+
+Si la tarea es encontrada, se cambia su estado de completed a lo opuesto.
+
+Luego, se guarda la lista de tareas en el localStorage y se vuelve a renderizar la lista de tareas.
+
+removeTask(id: number): void
+
+Esta función elimina una tarea.
+
+Parámetro: id (number) - El id de la tarea a eliminar.
+
+Funcionamiento:
+
+Se filtra el array tasks, eliminando la tarea cuyo id coincida con el proporcionado.
+
+Se guarda la lista de tareas actualizada en el localStorage y se vuelve a renderizar la lista de tareas.
+
+getTasks(filter: string = "all"): Task[]
+
+Esta función filtra las tareas según el estado de completado.
+
+Parámetro: filter (string) - El filtro a aplicar. Puede ser:
+
+"all": Devuelve todas las tareas (completadas y no completadas).
+
+"completed": Devuelve solo las tareas completadas.
+
+"pending": Devuelve solo las tareas pendientes.
+
+Funcionamiento:
+
+Si el filtro es "completed", devuelve solo las tareas completadas.
+
+Si el filtro es "pending", devuelve solo las tareas no completadas.
+
+Si el filtro es "all", devuelve todas las tareas.
+
+saveTasks(): void
+
+Esta función guarda todas las tareas en el localStorage del navegador.
+
+Funcionamiento:
+
+Convierte el array tasks a una cadena JSON y la almacena en el localStorage bajo la clave "tasks".
+
+loadTasks(): void
+
+Esta función carga las tareas guardadas en el localStorage al iniciar la página.
+
+Funcionamiento:
+
+Obtiene las tareas del localStorage usando getItem().
+
+Si hay tareas guardadas, las convierte desde JSON a un array de objetos Task y las asigna a la propiedad tasks.
+
+renderTasks(filter: string = "all"): void
+
+Esta función renderiza las tareas en la interfaz de usuario.
+
+Parámetro: filter (string) - El filtro de tareas que se desea mostrar.
+
+Funcionamiento:
+
+Primero, limpia el contenedor de tareas HTML.
+
+Luego, obtiene las tareas filtradas usando la función getTasks().
+
+Por cada tarea, se crea un nuevo elemento li que representa una tarea y se le agrega:
+
+Un texto con el título de la tarea.
+
+Un botón para marcarla como completada o no completada.
+
+Un botón para eliminarla.
+
+Los elementos creados se agregan al contenedor taskListElement.
+
+Eventos en el documento HTML
+Agregar tarea:
+
+Se agrega un evento al botón con id="addTaskButton". Al hacer clic, se obtiene el valor del input con id="taskTitle", y si no está vacío, se agrega una nueva tarea con el título ingresado.
+
+Filtrar tareas:
+
+Se agregan eventos a todos los botones de filtro. Al hacer clic en un botón, se obtiene el filtro seleccionado (por ejemplo, "completed", "pending", o "all") y se renderizan las tareas según el filtro.
+
+Renderizado inicial:
+
+Al cargar la página, se llama a taskManager.renderTasks() para mostrar las tareas existentes (si las hay) desde el localStorage.
+
+Esta es la explicación completa del código. Está diseñado para gestionar tareas con funcionalidades como agregar, eliminar, marcar como completadas, y persistir las tareas entre sesiones mediante localStorage.
