@@ -1,0 +1,62 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Contenedor principal */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border: solid 2px gold   ;
+}
+
+/* subcontenedor */
+
+.subcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: solid 2px red   ;
+    margin-bottom: 20px;
+}
+
+.infocontact{
+    border: solid 2px brown   ;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    
+}
+/* Enlace de LinkedIn */
+.contactdata a {
+    color: #0077b5;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contactdata a:hover {
+    text-decoration: underline;
+}
+
+/* Imagen de perfil */
+.contactdata img {
+    margin-top: 0px;
+    border-radius: 50%;
+    border: 3px solid #0077b5;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
