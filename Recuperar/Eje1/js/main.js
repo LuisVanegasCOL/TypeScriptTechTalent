@@ -1,3 +1,4 @@
+"use strict";
 // ts/main.ts
 window.addEventListener("DOMContentLoaded", () => {
     const nameHeading = document.querySelector("h1");
